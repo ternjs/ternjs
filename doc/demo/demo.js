@@ -155,7 +155,7 @@ function loadDefs(defs, c) {
       result[i] = defsLoaded[name]
       if (++loaded == defs.length) c(result)
     } else {
-      load("../../defs/" + name + ".json", function(json) {
+      load("../../node_modules/tern/defs/" + name + ".json", function(json) {
         defsLoaded[name] = result[i] = JSON.parse(json)
         if (++loaded == defs.length) c(result)
       })
