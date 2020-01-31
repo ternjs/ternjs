@@ -7,7 +7,7 @@
 </head>
 <div id=top>
   <div id=head>
-    <a href="https://ternjs.net" class=title>Tern: <span class=subtitle>Intelligent JavaScript tooling</span>
+    <a href="http://ternjs.net" class=title>Tern: <span class=subtitle>Intelligent JavaScript tooling</span>
     </a><a href="demo/index.html">Demo
     </a><a href="manual.html">Docs
     </a><a href="https://github.com/ternjs/tern">Code</a>
@@ -205,7 +205,7 @@ very top are the <a href="#editor">editor plugins</a>. These talk to a
 </li>
 </ul></div>
 <h2> <a id="server"></a>The Tern server</h2>
-<p> The <code>bin/tern</code> <em>binary</em> (<a href="https://nodejs.org">node.js</a> script, really),
+<p> The <code>bin/tern</code> <em>binary</em> (<a href="http://nodejs.org">node.js</a> script, really),
 is used to start a Tern server. You will usually want to let an
 <a href="#plugins">editor plugin</a> start it for you, but it can be started
 manually, which can be useful for debugging.</p>
@@ -286,7 +286,7 @@ servers for the same project).
 <h3> <a id="protocol"></a>JSON protocol</h3>
 <p> Sending queries to a Tern server is done by making <code>POST</code> requests to
 the server&#8217;s port (using <code>/</code> as the requests&#8217;s path) with a
-<a href="https://json.org">JSON</a> document in the body of the request.</p>
+<a href="http://json.org">JSON</a> document in the body of the request.</p>
 <p> This document should be an object, with three optional fields,
 <code>query</code>, <code>files</code>, and <code>timeout</code>.</p>
 <p> The first (<code>query</code>) describes the kind of information you are
@@ -927,7 +927,7 @@ After analyzing a file.
 <p>
 Will be run right
 before a file is parsed, and passed the given text and options. If a
-handler returns a new text value, the origin text will be overriden.
+handler returns a new text value, the origin text will be overridden.
 This is useful for instance when a plugin is able to extract
 JavaScript content from an HTML file.
 </p>
@@ -1101,7 +1101,7 @@ cause the server to try and resolve the file on which the query
 operates (from its <code>file</code> property) and pass that (a <code>{name, text,
 scope, ast}</code> object) as a third argument to the <code>run</code> function. You
 will probably need to use the <a href="#infer">inference module&#8217;s API</a> to
-do someting useful in this function.
+do something useful in this function.
 </p>
 </dd>
 </dl>
@@ -1109,7 +1109,7 @@ do someting useful in this function.
 <p> This plugin, which is enabled by default in the <code>bin/tern</code> server,
 parses comments before function declarations, variable declarations,
 and object properties. It will look for
-<a href="https://jsdoc.app/">JSDoc</a>-style type declarations, and try to parse
+<a href="http://usejsdoc.org/">JSDoc</a>-style type declarations, and try to parse
 them and add them to the inferred types, and it will treat the first
 sentence of comment text as the docstring for the defined variable or
 property.</p>
@@ -1138,7 +1138,7 @@ will wrap files in a file-local scope, and bind <code>require</code>, <code>modu
 and <code>exports</code> in this scope. Does not implement a module resolution
 strategy (see for example <a href="#plugin_node_resolve">the <code>node_resolve</code> plugin</a>). Depends on the <a href="#plugin_modules"><code>modules</code></a> plugin.</p>
 <h4> <a id="plugin_node"></a>Node.js plugin</h4>
-<p> The <a href="https://nodejs.org">node.js</a> plugin, called <code>"node"</code>, provides
+<p> The <a href="http://nodejs.org">node.js</a> plugin, called <code>"node"</code>, provides
 variables that are part of the node environment, such as <code>process</code> and
 <code>__dirname</code>, and loads the <a href="#plugin_commonjs"><code>commonjs</code></a> and
 <a href="#plugin_node_resolve"><code>node_resolve</code></a> plugins to allow node-style
@@ -1218,7 +1218,7 @@ like:</p>
 can omit it if they&#8217;re in the same folder.</p>
 <h4> <a id="plugin_requirejs"></a>RequireJS plugin</h4>
 <p> This plugin (<code>"requirejs"</code>) teaches the server to understand
-<a href="https://requirejs.org">RequireJS</a>-style dependency management. It
+<a href="http://requirejs.org">RequireJS</a>-style dependency management. It
 defines the global functions <code>define</code> and <code>requirejs</code>, and will do its
 best to resolve dependencies and give them their proper types.</p>
 <p> These options are understood:</p>
@@ -1287,9 +1287,9 @@ this method will work regardless of its install location relative to the
 Tern distribution, but plugins without it may fail to find Tern modules or
 even silently load the wrong Tern modules depending on install location.</p>
 <p> Plugin packages can specify the Tern version required as a
-<a href="https://blog.nodejs.org/2013/02/07/peer-dependencies">peer dependency</a>.</p>
+<a href="http://blog.nodejs.org/2013/02/07/peer-dependencies">peer dependency</a>.</p>
 <h3> <a id="configuration"></a>Project configuration</h3>
-<p> A <code>.tern-project</code> file is a <a href="https://json.org">JSON</a> file in a format
+<p> A <code>.tern-project</code> file is a <a href="http://json.org">JSON</a> file in a format
 like this:</p>
 <pre data-language="application/json" class="cm-s-default">{
   <span class="cm-string cm-property">"libs"</span>: [
@@ -1366,7 +1366,7 @@ given a context and an abstract syntax tree (parsed representation of
 the code), tries to infer the types of the variables and properties in
 the code.</p>
 <p> The parser is implemented in a separate module,
-<a href="https://marijnhaverbeke.nl/acorn">Acorn</a>, which provides a regular
+<a href="http://marijnhaverbeke.nl/acorn">Acorn</a>, which provides a regular
 JavaScript parser, an error-tolerant parser, and a number of utilities
 for iterating through and searching in abstract syntax trees. The
 syntax tree format used by Acorn and Tern is described in the
@@ -1374,7 +1374,7 @@ syntax tree format used by Acorn and Tern is described in the
 parser API</a> document (though support for features that are not in
 ECMAScript 5, such as <code>let</code>, is omitted).</p>
 <p> A high-level description of the way Tern&#8217;s type inference algorithm
-works can be found in a <a href="https://marijnhaverbeke.nl/blog/tern.html">blog
+works can be found in a <a href="http://marijnhaverbeke.nl/blog/tern.html">blog
 post</a> I wrote on the subject.</p>
 <p> This module also exposes some utility functions that are useful to
 implement the <a href="#protocol">services</a> the server exposes.</p>
@@ -1747,7 +1747,7 @@ interested in other kinds of types.
 will have, when possible, an <code>originNode</code> property pointing to an AST
 node.</p>
 <p> <a id="type_is_aval"></a> As a memory-consuming hack, <a href="#infer_types">types</a>
-also expose the interface of abstact values, so that in cases where an
+also expose the interface of abstract values, so that in cases where an
 AVal is expected, but the precise type is known, the type object can
 simply be used.</p>
 <p> <a id="infer.ANull"></a>The <code>infer.ANull</code> value is a special AVal-like object
@@ -1757,9 +1757,9 @@ in the types, or there simply are no types.</p>
 <h3> <a id="infer_constraint"></a>Constraints</h3>
 <p> Constraints are things that can receive values. They use the same
 <code>addType</code> method to receive them, which causes all AVals to also be
-useable as constraints. The inference engine defines a number of
+usable as constraints. The inference engine defines a number of
 additional constraints to propagate values in more indirect ways. See
-the <a href="https://marijnhaverbeke.nl/blog/tern.html">blog post</a> on the
+the <a href="http://marijnhaverbeke.nl/blog/tern.html">blog post</a> on the
 inference algorithm for some examples.</p>
 <dl>
 <dt>
@@ -1933,8 +1933,8 @@ guessing flag.
 try and port one of the existing plugins to it. When figuring out how
 things work, the code powering the demo, in <code>doc/demo/demo.js</code>, might
 also come in useful.</p>
-<p> All these plugins use the <a href="https://nodejs.org">node.js</a>-based server, and
-thus require that (as well as <a href="https://npmjs.org">npm</a>) to be installed.</p>
+<p> All these plugins use the <a href="http://nodejs.org">node.js</a>-based server, and
+thus require that (as well as <a href="http://npmjs.org">npm</a>) to be installed.</p>
 <h3> <a id="emacs"></a>Emacs</h3>
 <p> The Emacs mode is part of the main tern
 <a href="https://github.com/ternjs/tern">repository</a>. It can be installed as
@@ -2056,12 +2056,12 @@ link.</p>
 <p> <a href="https://github.com/ramitos/jsctags">jsctags</a> is a tool that generates
 ctags files from JavaScript code by using Tern&#8217;s inference engine.</p>
 <h3> <a id="_codemirror_tern_addon"></a>CodeMirror Tern addon</h3>
-<p> The <a href="https://codemirror.net">CodeMirror</a> browser-based editor has an
-<a href="https://codemirror.net/demo/tern.html">addon</a> for integrating with Tern.</p>
+<p> The <a href="http://codemirror.net">CodeMirror</a> browser-based editor has an
+<a href="http://codemirror.net/demo/tern.html">addon</a> for integrating with Tern.</p>
 <h3> <a id="_tern_ace"></a>tern.ace</h3>
 <p> <a href="https://github.com/angelozerr/tern.ace">tern.ace</a> integrates Tern in
-the <a href="https://ace.c9.io/">ACE</a> editor.</p>
+the <a href="http://ace.c9.io/">ACE</a> editor.</p>
 <h3> <a id="_tern_orion"></a>tern.orion</h3>
 <p> <a href="https://github.com/angelozerr/tern.orion">tern.orion</a> integrates Tern in
-the <a href="https://www.eclipse.org/orion/">Orion</a> editor.</p>
+the <a href="http://www.eclipse.org/orion/">Orion</a> editor.</p>
 </div>

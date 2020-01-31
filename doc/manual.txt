@@ -48,7 +48,7 @@ engine>> to do the actual type inference.
 [[server]]
 == The Tern server ==
 
-The `bin/tern` 'binary' (https://nodejs.org[node.js] script, really),
+The `bin/tern` 'binary' (http://nodejs.org[node.js] script, really),
 is used to start a Tern server. You will usually want to let an
 <<plugins,editor plugin>> start it for you, but it can be started
 manually, which can be useful for debugging.
@@ -100,7 +100,7 @@ servers for the same project).
 
 Sending queries to a Tern server is done by making `POST` requests to
 the server's port (using `/` as the requests's path) with a
-https://json.org[JSON] document in the body of the request.
+http://json.org[JSON] document in the body of the request.
 
 This document should be an object, with three optional fields,
 `query`, `files`, and `timeout`.
@@ -438,7 +438,7 @@ analysis data and starts a fresh run.
 
 [[event_preParse]] `"preParse" (text, options)`:: Will be run right
 before a file is parsed, and passed the given text and options. If a
-handler returns a new text value, the origin text will be overriden.
+handler returns a new text value, the origin text will be overridden.
 This is useful for instance when a plugin is able to extract
 JavaScript content from an HTML file.
 
@@ -585,7 +585,7 @@ cause the server to try and resolve the file on which the query
 operates (from its `file` property) and pass that (a `{name, text,
 scope, ast}` object) as a third argument to the `run` function. You
 will probably need to use the <<infer,inference module's API>> to
-do someting useful in this function.
+do something useful in this function.
 
 [[plugin_doc_comment]]
 ==== Doc comments plugin ====
@@ -593,7 +593,7 @@ do someting useful in this function.
 This plugin, which is enabled by default in the `bin/tern` server,
 parses comments before function declarations, variable declarations,
 and object properties. It will look for
-https://jsdoc.app/[JSDoc]-style type declarations, and try to parse
+http://usejsdoc.org/[JSDoc]-style type declarations, and try to parse
 them and add them to the inferred types, and it will treat the first
 sentence of comment text as the docstring for the defined variable or
 property.
@@ -626,7 +626,7 @@ plugin>>). Depends on the <<plugin_modules,`modules`>> plugin.
 [[plugin_node]]
 ==== Node.js plugin ====
 
-The https://nodejs.org[node.js] plugin, called `"node"`, provides
+The http://nodejs.org[node.js] plugin, called `"node"`, provides
 variables that are part of the node environment, such as `process` and
 `__dirname`, and loads the <<plugin_commonjs,`commonjs`>> and
 <<plugin_node_resolve,`node_resolve`>> plugins to allow node-style
@@ -707,7 +707,7 @@ can omit it if they're in the same folder.
 ==== RequireJS plugin ====
 
 This plugin (`"requirejs"`) teaches the server to understand
-https://requirejs.org[RequireJS]-style dependency management. It
+http://requirejs.org[RequireJS]-style dependency management. It
 defines the global functions `define` and `requirejs`, and will do its
 best to resolve dependencies and give them their proper types.
 
@@ -767,12 +767,12 @@ Tern distribution, but plugins without it may fail to find Tern modules or
 even silently load the wrong Tern modules depending on install location.
 
 Plugin packages can specify the Tern version required as a
-https://blog.nodejs.org/2013/02/07/peer-dependencies[peer dependency].
+http://blog.nodejs.org/2013/02/07/peer-dependencies[peer dependency].
 
 [[configuration]]
 === Project configuration ===
 
-A `.tern-project` file is a https://json.org[JSON] file in a format
+A `.tern-project` file is a http://json.org[JSON] file in a format
 like this:
 
 [source,application/json]
@@ -857,7 +857,7 @@ the code), tries to infer the types of the variables and properties in
 the code.
 
 The parser is implemented in a separate module,
-https://marijnhaverbeke.nl/acorn[Acorn], which provides a regular
+http://marijnhaverbeke.nl/acorn[Acorn], which provides a regular
 JavaScript parser, an error-tolerant parser, and a number of utilities
 for iterating through and searching in abstract syntax trees. The
 syntax tree format used by Acorn and Tern is described in the
@@ -866,7 +866,7 @@ parser API] document (though support for features that are not in
 ECMAScript 5, such as `let`, is omitted).
 
 A high-level description of the way Tern's type inference algorithm
-works can be found in a https://marijnhaverbeke.nl/blog/tern.html[blog
+works can be found in a http://marijnhaverbeke.nl/blog/tern.html[blog
 post] I wrote on the subject.
 
 This module also exposes some utility functions that are useful to
@@ -1062,7 +1062,7 @@ will have, when possible, an `originNode` property pointing to an AST
 node.
 
 [[type_is_aval]] As a memory-consuming hack, <<infer_types,types>>
-also expose the interface of abstact values, so that in cases where an
+also expose the interface of abstract values, so that in cases where an
 AVal is expected, but the precise type is known, the type object can
 simply be used.
 
@@ -1076,9 +1076,9 @@ in the types, or there simply are no types.
 
 Constraints are things that can receive values. They use the same
 `addType` method to receive them, which causes all AVals to also be
-useable as constraints. The inference engine defines a number of
+usable as constraints. The inference engine defines a number of
 additional constraints to propagate values in more indirect ways. See
-the https://marijnhaverbeke.nl/blog/tern.html[blog post] on the
+the http://marijnhaverbeke.nl/blog/tern.html[blog post] on the
 inference algorithm for some examples.
 
 [[infer.constraint]]`infer.constraint(methods: object) → constructor`::
@@ -1180,8 +1180,8 @@ try and port one of the existing plugins to it. When figuring out how
 things work, the code powering the demo, in `doc/demo/demo.js`, might
 also come in useful.
 
-All these plugins use the https://nodejs.org[node.js]-based server, and
-thus require that (as well as https://npmjs.org[npm]) to be installed.
+All these plugins use the http://nodejs.org[node.js]-based server, and
+thus require that (as well as http://npmjs.org[npm]) to be installed.
 
 [[emacs]]
 === Emacs ===
@@ -1302,15 +1302,15 @@ ctags files from JavaScript code by using Tern's inference engine.
 
 === CodeMirror Tern addon ===
 
-The https://codemirror.net[CodeMirror] browser-based editor has an
-https://codemirror.net/demo/tern.html[addon] for integrating with Tern.
+The http://codemirror.net[CodeMirror] browser-based editor has an
+http://codemirror.net/demo/tern.html[addon] for integrating with Tern.
 
 === tern.ace ===
 
 https://github.com/angelozerr/tern.ace[tern.ace] integrates Tern in
-the https://ace.c9.io/[ACE] editor.
+the http://ace.c9.io/[ACE] editor.
 
 === tern.orion ===
 
 https://github.com/angelozerr/tern.orion[tern.orion] integrates Tern in
-the https://www.eclipse.org/orion/[Orion] editor.
+the http://www.eclipse.org/orion/[Orion] editor.
